@@ -1,3 +1,5 @@
+[TOC]
+
 # Hacking and Securing Docker Containers
 
 
@@ -53,7 +55,7 @@ As you can see, even if the file is writable only for root user, I can edit it f
 
 
 
-### User namespaces for isolation between containers and hosts
+### Use namespaces for isolation between containers and hosts
 
 Now I'll tell you how to *fix* this problem.
 
