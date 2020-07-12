@@ -27,10 +27,12 @@ gle003@vb-ubuntu:~$ echo "Edit from non-root user" >> /tmp/file.txt
 If we start a container **sharing a folder from the machine**, you can login inside the container and have root privileges, as I show below:
 
 ```bash
+#Creating a new container and sharing /tmp/
 gle003@vb-ubuntu:~$ docker run -itd -v /tmp/:/shared/ --name alpine_broken alpine
 3be059a0473ddc9cbe33c1a95ba4e52d25525d912cd8ef5a01f1da0066c7a6eb
 gle003@vb-ubuntu:~$ docker exec -it alpine_broken sh
 
+#Testing if it is possible to edit file.txt from the container
 ~ # ls -l /shared/file.txt
 -rw-r--r--    1 root     root            36 Jul 11 17:53 /shared/file.txt
 ~ # echo "Edit from container." > /shared/file.txt
@@ -38,6 +40,7 @@ gle003@vb-ubuntu:~$ docker exec -it alpine_broken sh
 Edit from the container.
 ~ # exit
 
+#Seeing that it changed from the machine
 gle003@vb-ubuntu:~$ cat /tmp/file.txt
 Edit from the container.
 ```
