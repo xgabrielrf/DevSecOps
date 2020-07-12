@@ -1,5 +1,3 @@
-[TOC]
-
 # Hacking and Securing Docker Containers
 
 
