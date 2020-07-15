@@ -1,12 +1,10 @@
-# Hacking and Securing Docker Containers
+# Exploiting vulnerable images
 
 <sub>You can buy this course on Udemy following this link: [Hacking and Securing Docker Containers](https://www.udemy.com/course/hacking-and-securing-docker-containers/)</sub>
 
-## Exploiting vulnerable images
+## Namespaces
 
-### Namespaces
-
-#### Editing read-only files as root from containers
+### Editing read-only files as root from containers
 
 Normally we run containers with our users, with or without sudoers.
 Even if we are only in a single docker group, it allows you to run docker.
@@ -55,7 +53,7 @@ As you can see, even if the file is writable only for root user, I can edit it f
 
 
 
-#### Use namespaces for isolation between containers and hosts
+### Use namespaces for isolation between containers and hosts
 
 Now I'll tell you how to *fix* this problem.
 
@@ -121,7 +119,7 @@ Now it is no more possible to edit outside files from containers using **-v** op
 
 
 
-### ShellShock
+## ShellShock
 
 We can test this vulnerability using an image that already has it.
 
@@ -171,7 +169,7 @@ Now, back to the **Listener** and you can send command however you want.
 
 
 
-#### But, am I inside a container?
+### But, am I inside a container?
 
 After the previous commands using ShellShock, you can use shell commands, but where you are? Are you inside a container? As we can see, it is not unusual to be confused about where you are. So let's see how to be sure about it.
 
@@ -224,7 +222,7 @@ This is one way to see where you are.
 
 
 
-### Backdooring existing images
+## Backdooring existing images
 
 To test this attack, we need to install some features (official page: [cr0hn](https://github.com/cr0hn/dockerscan)).
 
@@ -297,7 +295,7 @@ cat /proc/self/cgroup
 
 
 
-#### How would I escape from it?
+### How would I escape from it?
 
 Downloading third-party Docker images can be a danger way to do it.
 
@@ -305,5 +303,5 @@ To avoid this problem you need to download images from trusted sources, as [Dock
 
 
 
-### Privilege escalation using volume mounts
+## Privilege escalation using volume mounts
 
