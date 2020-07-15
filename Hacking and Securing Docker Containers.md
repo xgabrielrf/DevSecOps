@@ -112,3 +112,10 @@ sh: can't create /shared/file.txt: Permission denied
 ```
 
 Now it is no more possible to edit outside files from containers using **-v** option.
+
+
+
+
+
+## Shellshock
+
